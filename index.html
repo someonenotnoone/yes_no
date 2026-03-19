@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Sleepover Question</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: linear-gradient(180deg, #fff7fb 0%, #ffeef6 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      color: #222;
+    }
+
+    .screen {
+      width: 100%;
+      max-width: 420px;
+      background: rgba(255, 255, 255, 0.92);
+      border-radius: 24px;
+      padding: 32px 24px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.10);
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2rem;
+      line-height: 1.25;
+      margin: 0 0 28px;
+      font-weight: 700;
+    }
+
+    p {
+      font-size: 1.4rem;
+      line-height: 1.5;
+      margin: 0;
+      font-weight: 600;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    button {
+      width: 100%;
+      border: none;
+      border-radius: 18px;
+      padding: 18px 16px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+
+    .yes-btn {
+      background: #ff5c9a;
+      color: white;
+    }
+
+    .no-btn {
+      background: white;
+      color: #ff5c9a;
+      border: 2px solid #ff5c9a;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @media (max-width: 390px) {
+      h1 {
+        font-size: 1.75rem;
+      }
+
+      p {
+        font-size: 1.2rem;
+      }
+
+      button {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section id="page1" class="screen">
+      <h1>Am I sleeping over Sunday night?</h1>
+      <div class="buttons">
+        <button id="yesButton" class="yes-btn">Yes</button>
+        <button id="noButton" class="no-btn">No</button>
+      </div>
+    </section>
+
+    <section id="page2" class="screen hidden">
+      <p>Sounds good, see you then</p>
+    </section>
+  </main>
+
+  <script>
+    const page1 = document.getElementById('page1');
+    const page2 = document.getElementById('page2');
+    const yesButton = document.getElementById('yesButton');
+    const noButton = document.getElementById('noButton');
+
+    noButton.addEventListener('click', () => {
+      noButton.textContent = 'Yes';
+    });
+
+    yesButton.addEventListener('click', () => {
+      page1.classList.add('hidden');
+      page2.classList.remove('hidden');
+    });
+  </script>
+</body>
+</html>
