@@ -118,9 +118,16 @@
     const page2 = document.getElementById('page2');
     const yesButton = document.getElementById('yesButton');
     const noButton = document.getElementById('noButton');
+    const buttonsContainer = document.querySelector('.buttons');
 
     noButton.addEventListener('click', () => {
-      noButton.textContent = 'Yes';
+      const firstButton = buttonsContainer.firstElementChild;
+
+      if (firstButton === yesButton) {
+        buttonsContainer.insertBefore(noButton, yesButton);
+      } else {
+        buttonsContainer.insertBefore(yesButton, noButton);
+      }
     });
 
     yesButton.addEventListener('click', () => {
